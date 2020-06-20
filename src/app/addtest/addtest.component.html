@@ -1,0 +1,31 @@
+
+<h1 align="center">Add Test</h1>
+<div class="row justify-content-center">
+    <div class="col-sm-4 text-left bg-white rounded shadow py-3">
+   
+  
+        <form #centerForm="ngForm">
+            
+
+            <div class="form-group">
+                <label for="testName">Test Name</label>
+                <input type="text" [(ngModel)]="test.testName" class="form-control" id="testName" name=testName placeholder="Enter Test Name" #testName="ngModel" pattern="[A-Z][a-z]*" required="">
+                <small class="text-danger" *ngIf="!testName.valid && testName.touched">First letter should be capital.</small>
+        
+            </div>
+            <div class="form-group">
+                <label for="testPrice">Test Price</label>
+                <input type="number" [(ngModel)]="test.testPrice" class="form-control" id="testPrice" name=testPrice placeholder="Enter Test Name" #testPrice="ngModel" pattern="[0-9]{3,}" required="">
+                <small class="text-danger" *ngIf="!testPrice.valid && testPrice.touched">Test Price should be of 3 Digit.</small>
+        
+            </div>
+            <div class="form-group">
+                <label for="diagnosticCentre">Diagnostic Center</label>
+                <input type="text" [(ngModel)]="test.diagnosticCentre" class="form-control" id="diagnosticCentre" #address="ngModel" name=diagnosticCentre placeholder="Enter Diagnostic Center Name" required  >
+                <small class="text-danger" *ngIf="!address.valid && address.touched">Center Must not be Empty</small>
+            </div>
+            <button class="btn btn-success" [disabled]="!centerForm.valid" (click)="addTest()">Add Test</button>
+        
+        </form>
+    </div>
+</div>
