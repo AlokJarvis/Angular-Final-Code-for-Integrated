@@ -1,0 +1,24 @@
+<div class = "container-fluid mb-5">
+    <h1 style="text-align: center;"><i><b>DELETE USER </b></i></h1>
+    <form #deleteUserForm = "ngForm" (ngSubmit)="deleteUser(deleteUserForm)">
+        <div class="form-group">
+            <label class="form-group'level">User Id</label>
+            <input type="number" required #userId="ngModel" pattern="^\d+$" name="userId" class="form-control" ngModel>
+        </div>
+
+        <div class="alert alert-danger" *ngIf="userId.errors && (userId.dirty || userId.touched)">
+            User Id is required
+        </div>
+
+        <button [disabled]="deleteUserForm.form.invalid" class="btn btn-primary" type="submit">Delete</button>
+    </form>
+</div>
+<div class="container" *ngIf="show">
+    <!-- <h3 style="color: red;">{{response}}</h3> -->
+    <div *ngIf="response; else elseBlock">
+        <h3 style="color: rgb(3, 1, 12);">User Deleted Successfully</h3>
+    </div>
+    <ng-template #elseBlock><h5>No such User found. Please re-check entered User Id.</h5></ng-template>
+ </div>
+
+

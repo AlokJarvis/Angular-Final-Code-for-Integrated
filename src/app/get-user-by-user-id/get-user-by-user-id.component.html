@@ -1,0 +1,50 @@
+<div class="container">
+    <br>
+    <h1 style="text-align: center;"><i><b>USER DETAILS </b></i></h1>
+    <form #getUserByUserIdForm="ngForm" (ngSubmit)="getUserByUserId(getUserByUserIdForm)">
+        <div class="form-group">
+            <label class="form-group-level">User Id</label>
+            <input type="number" ngModel name="userId" required #userId ="ngModel"  >
+            <!-- <input type="submit" value="Submit"> -->
+            <button [disabled]="getUserByUserIdForm.form.invalid" class="btn btn-primary" type="submit">Find User</button>
+
+        </div>
+    </form>
+    <div class="container" *ngIf="show">
+        <div *ngIf="resp; else elseBlock">
+            <div class="form-group">
+                <div class= "container">
+                
+                        <table class ="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>UserId</th>
+                                <th>User Name</th>
+                                <th>User Password</th>
+                               
+                                <th>is Admin</th>
+                               
+                            </tr>
+                    
+                        </thead>
+                        
+                        <tbody *ngFor="let user of users">
+                            <tr>
+                                        
+                                        <td>{{users.userId}}</td>
+                                        <td>{{users.userName}}</td>
+                                        <td>{{users.userPassword}}</td>
+                                       
+                                        <td>{{users.isAdmin}}</td>
+                                       
+                            </tr>
+                        </tbody>         
+                        </table>
+                    </div>
+                </div>
+            </div>
+        <ng-template #elseBlock><h5><b>No such User found. Please re-check entered User Id.</b></h5></ng-template>
+              
+    </div>
+</div>
+

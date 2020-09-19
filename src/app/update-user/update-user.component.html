@@ -1,0 +1,81 @@
+<div class = "container-fluid mb-5">
+    <h1 style="text-align: center; "><i><b>UPDATE QUESTION</b></i></h1>
+    <form #updateUserForm="ngForm" (ngSubmit)="updateUser(updateUserForm)" novalidate>
+
+        <div class="form-group">
+            <label class="form-group-level">User Id</label>
+            <input type="number" required #userId ="ngModel" 
+            [class.is-invalid]="userId.invalid && userId.touched"
+            class = "form-control" name="userId" [(ngModel)]="user.userId">
+        <small class ="text-danger" 
+        [class.d-none]="userId.valid || userId.untouched" >User Id is Required</small>
+        </div>
+
+        <div class="form-group">
+            <label class="form-group-level">User Name</label>
+            <input type="text" required #userName ="ngModel" 
+            [class.is-invalid]="userName.invalid && userName.touched"
+            class = "form-control" name="userName" [(ngModel)]="user.userName">
+        <small class ="text-danger" 
+        [class.d-none]="userName.valid || userName.untouched" >User Name is Required</small>
+    
+        </div>
+
+        <div class="form-group">
+            <label class="form-group-level">User Password</label>
+            <input type="text" required #userPassword="ngModel" 
+                [class.is-invalid]="userPassword.invalid && userPassword.touched"
+                class = "form-control" name="userPassword" [(ngModel)]="user.userPassword">
+            <small class ="text-danger" 
+            [class.d-none]="userPassword.valid || userPassword.untouched" >User Password is Required</small>
+        </div>
+
+     
+        <div class="form-group">
+            <label class="form-group-level">Is Admin</label>
+            <input type="text" required #isAdmin="ngModel" 
+                [class.is-invalid]="isAdmin.invalid && isAdmin.touched"
+                class="form-control" name = "isAdmin" [(ngModel)]="user.isAdmin">
+            <small class ="text-danger" 
+            [class.d-none]="isAdmin.valid || isAdmin.untouched" >User Status is Required</small>
+        </div>
+
+        
+        <br/>
+        <button [disabled]="updateUserForm.form.invalid" class="btn btn-primary" type="submit">Update User</button>
+
+    </form>
+</div>
+
+    <div class="container" *ngIf="show">
+        <div *ngIf="resp; else elseBlock">
+
+            <h1>User updated Successfully. Updated User Details</h1>
+                <table class="table">
+                    <tr>
+                        <th>User Id</th><td>{{userResp.userId}}</td>
+                    </tr>
+                    <tr>
+                        <th>User Name</th><td>{{userResp.userName}}</td>
+                    </tr>
+                    <tr>
+                        <th>User Password </th><td>{{userResp.userPassword}}</td>
+                    </tr>
+                   
+                    <tr>
+                        <th>Is Admin</th><td>{{userResp.isAdmin}}</td>
+                    </tr>
+                   
+                    <!-- <tr>
+                        <th>Chosen Answer</th><td>{{question.chosenAnswer}}</td>
+                    </tr>
+                    <tr>
+                        <th>Marks Scored</th><td>{{question.marksScored}}</td>
+                    </tr> -->
+                </table>
+            </div>
+        <ng-template #elseBlock><h4>No such User found. Please re-check entered User Id.</h4></ng-template>
+    </div>
+
+
+

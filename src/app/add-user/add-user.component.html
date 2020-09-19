@@ -1,0 +1,84 @@
+<div class = "container-fluid mb-5">
+    <h1 style="text-align: center;"><i><b>ADD USER </b></i></h1>
+        <form #addUserForm="ngForm" (ngSubmit)="onClickAddUser(addUserForm)" novalidate>
+    
+            <div class="form-group">
+                <label class="form-group-level">User Name</label>
+                <input type="text" required #userName ="ngModel" 
+                [class.is-invalid]="userName.invalid && userName.touched"
+                class = "form-control" name="userName" [(ngModel)]="user.userName">
+            <small class ="text-danger" 
+            [class.d-none]="userName.valid || userName.untouched" >User Name is Required</small>
+        
+            </div>
+    
+            <div class="form-group">
+                <label class="form-group-level">User Password</label>
+                <input type="text" required #userPassword="ngModel" 
+                    [class.is-invalid]="userPassword.invalid && userPassword.touched"
+                    class = "form-control" name="userPassword" [(ngModel)]="user.userPassword">
+                <small class ="text-danger" 
+                [class.d-none]="userPassword.valid || userPassword.untouched" >Password is Required</small>
+            </div>
+
+            
+
+            <div class="form-group">
+                <label class="form-group-level">Whether User is Admin ?</label>
+                <input type="radio" required #isAdmin="ngModel" 
+                    [class.is-invalid]="isAdmin.invalid && isAdmin.touched"
+                    class="form-control" name = "isAdmin" [(ngModel)]="user.isAdmin" value="true">Admin 
+
+                    <input type="radio" required #isAdmin="ngModel" 
+                    [class.is-invalid]="isAdmin.invalid && isAdmin.touched"
+                    class="form-control" name = "isAdmin" [(ngModel)]="user.isAdmin" value="false">Not an Admin 
+                   
+                <small class ="text-danger" 
+                [class.d-none]="isAdmin.valid || isAdmin.untouched" >User Status is Required</small>
+            </div>
+
+           
+
+          
+    
+           
+            
+            <br/>
+            <button [disabled]="addUserForm.form.invalid" class="btn btn-primary" type="submit">Add User</button>
+    
+        </form>
+    
+        <div class="container" *ngIf="show">
+           
+            <h3>User added Successfully. User Details</h3>
+                <table class="table" >
+                    <!-- <tr>
+                        <th>QuestionRESP TITLE </th><td>{{questionResp.questionTitle}}</td>
+
+                    </tr> -->
+                    <tr>
+                        <th>User Id</th><td>{{userResp.userId}}</td>
+                    </tr>
+                    <tr>
+                        <th>User Name</th><td>{{userResp.userName}}</td>
+                    </tr>
+                    <tr>
+                        <th>User Password </th><td>{{userResp.userPassword}}</td>
+                    </tr>
+                   
+                    <tr>
+                        <th>Is Admin </th><td>{{userResp.isAdmin}}</td>
+                    </tr>
+                    <!-- <tr>
+                        <th>Chosen Answer</th><td>{{question.chosenAnswer}}</td>
+                    </tr>
+                    <tr>
+                        <th>Marks Scored</th><td>{{question.marksScored}}</td>
+                    </tr> -->
+                </table>
+        </div>
+       
+    
+    </div>
+
+
