@@ -13,6 +13,10 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { DeleteUserComponent } from './delete-user/delete-user.component';
 import { GetUserByUserIdComponent } from './get-user-by-user-id/get-user-by-user-id.component';
+import { CreatequestionComponent } from './createquestion/createquestion.component';
+import { UpdatequestionComponent } from './updatequestion/updatequestion.component';
+import { ShowquestionComponent } from './showquestion/showquestion.component';
+import { QuestionlistComponent } from './questionlist/questionlist.component';
 
 
 @NgModule({
@@ -24,6 +28,10 @@ import { GetUserByUserIdComponent } from './get-user-by-user-id/get-user-by-user
     UpdateUserComponent,
     DeleteUserComponent,
     GetUserByUserIdComponent,
+    CreatequestionComponent,
+    UpdatequestionComponent,
+    ShowquestionComponent,
+    QuestionlistComponent,
    
   
   ],
