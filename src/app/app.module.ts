@@ -9,20 +9,15 @@ import { AppComponent } from './app.component';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { AdminService } from './admin.service';
 import { SuccessfulComponent } from './successful/successful.component';
-import { AddcenterComponent } from './addcenter/addcenter.component';
-import { DeleteComponent } from './delete/delete.component';
-import { AddtestComponent } from './addtest/addtest.component';
-import { DeletetestComponent } from './deletetest/deletetest.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminloginComponent,
     SuccessfulComponent,
-    AddcenterComponent,
-    DeleteComponent,
-    AddtestComponent,
-    DeletetestComponent
+   
+  
   ],
   imports: [
     BrowserModule,

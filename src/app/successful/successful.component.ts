@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-successful',
@@ -8,12 +7,9 @@ import { Router } from '@angular/router';
 })
 export class SuccessfulComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
-  addCenter(): void {
-    this.router.navigate(['/addcenter'])//,this.customer.customerName
 
-}
 }
